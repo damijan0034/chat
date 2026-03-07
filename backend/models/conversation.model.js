@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import User from "./user.model.js"
+import Message from "./message.model.js"
 
 const conversationSchema=mongoose.Schema({
     participants:[
@@ -6,17 +8,17 @@ const conversationSchema=mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"User",
             required:true
-        },
+        }],
         messages:[
             {
                 type:mongoose.Schema.Types.ObjectId,
                 ref:"Message",
-                required:true   
+                default:[]  
             }
-        ]
+        
     ]
 })
 
-const Conversation=mongoose.model("Conversation",conversionSchema)
+const Conversation=mongoose.model("Conversation",conversationSchema)
 
 export default Conversation
