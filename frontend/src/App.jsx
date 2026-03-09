@@ -1,15 +1,15 @@
 
 
 import './App.css'
+import Login from './pages/login/Login'
 
 function App() {
 
 
   return (
-    <>
-      <div className="text-red-500">Hello, Tailwind!</div>
-      <button className="btn btn-primary">Click me</button>
-    </>
+    <div className="flex justify-center items-center p-4 h-screen">
+      <Login />
+    </div>
   
   )
 }
