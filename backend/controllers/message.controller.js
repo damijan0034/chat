@@ -43,3 +43,25 @@ export const sendMessage = async (req, res) => {
 	}
 };
 
+export const getMessages=async(req,res)=>{
+    try {
+         const senderId=req.user._id
+         const receiverId=req.params.id
+            const conversation=await Conversation.findOne({
+                participants: { $all: [senderId, receiverId] },
+            })
+            if(!conversation){
+                return res.status(404).json({ error: "Conversation not found" })
+            }
+			
+			const messages=conversation.messages
+
+			
+    res.status(200).json(messages)
+    } catch (error) {
+        console.log("Error in getMessages controller: ", error.message);
+        res.status(500).json({ error: "Internal server error" });
+    }
+   
+}
+
