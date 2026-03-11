@@ -10,12 +10,16 @@ const Conversation = () => {
         </div>
       </div>
       <div className="flex flex-col flex-1">
-        <div>
+        <div className='flex justify-between gap-3'>
           <p className='font-bold text-gray-200'>John Doe</p>
-          <span>Emoji</span>
+          <span className='text-xl'>🔥</span>
         </div>
       </div>
     </div>
+
+    <div className="my-0 py-0 h-1 divider" />
+
+    
     </>
   )
 }
